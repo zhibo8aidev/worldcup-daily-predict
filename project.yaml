@@ -1,8 +1,8 @@
 project_id: worldcup-daily-predict
 title: 世界杯每日赛程预测活动
 client_target: both
-current_stage: prd_review
-stage_status: waiting_review
+current_stage: design
+stage_status: in_progress
 source_inputs:
   idea: 开发一个嵌入直播吧 App 的世界杯每日赛程预测 H5 活动页，支持每日赛程预测、达人榜和赛后结算，纯成就感玩法，无奖品。
   existing_prd:
@@ -20,11 +20,10 @@ available_artifacts:
   backend_code: false
   test_report: false
   release_plan: false
-pending_reviews:
-- prd_review
+pending_reviews: []
 openspec_change_id: null
 react_native_mockups:
-  status: stale_after_latest_prd_update
+  status: regenerating_after_latest_prd_approval
   entry: null
   files: []
 repo_targets:
@@ -84,20 +83,19 @@ execution_policy:
     - design.md
     - tasks.md
 next_actions:
-- Human review required for the updated proposal/specs after latest PRD clarification
-- If approved, regenerate design artifacts against the final PRD
-- If rejected, revise proposal/specs again
+- Designer to regenerate design.md and HTML high-fidelity mockups from the latest
+  approved PRD
+- After updated design artifacts are ready, enter design_review
 orchestration_mode: strong
 validation:
   required_handoffs: []
   required_runs: []
   artifact_origin_verified: false
-  last_validation_note: User clarified that submit behavior follows PRD 3.2.3/3.3.1
-    and focus-player count follows PRD 3.2.2. Proposal/specs are updated and ready
-    for PRD review.
+  last_validation_note: Latest PRD clarification set approved by user; design stage
+    restarted to regenerate artifacts.
 last_decision:
   stage: prd_review
   decision: approved
   by: leader
-  at: '2026-04-23T17:59:00+08:00'
-  note: 批准 revised PRD worldcup-daily-predict
+  at: '2026-04-23T18:27:00+08:00'
+  note: 批准 PRD worldcup-daily-predict
