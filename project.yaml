@@ -1,8 +1,8 @@
 project_id: worldcup-daily-predict
 title: 世界杯每日赛程预测活动
 client_target: both
-current_stage: design_review
-stage_status: waiting_review
+current_stage: tech_design_tasks
+stage_status: in_progress
 source_inputs:
   idea: 开发一个嵌入直播吧 App 的世界杯每日赛程预测 H5 活动页，支持每日赛程预测、达人榜和赛后结算，纯成就感玩法，无奖品。
   existing_prd:
@@ -20,8 +20,7 @@ available_artifacts:
   backend_code: false
   test_report: false
   release_plan: false
-pending_reviews:
-- design_review
+pending_reviews: []
 openspec_change_id: null
 react_native_mockups:
   status: ready_for_review
@@ -87,19 +86,17 @@ execution_policy:
     - design.md
     - tasks.md
 next_actions:
-- Human review required for the latest design.md and HTML mockups
-- If approved, enter tech_design_tasks and draft tasks.md
-- If rejected, revise design artifacts again
+- Draft tasks.md and implementation-oriented technical design artifacts
+- After tasks are ready, enter tech_review
 orchestration_mode: strong
 validation:
   required_handoffs: []
   required_runs: []
   artifact_origin_verified: false
-  last_validation_note: Latest design artifacts generated against the final PRD and
-    design spec are ready for review.
+  last_validation_note: Design approved by user; project advanced to tech_design_tasks.
 last_decision:
-  stage: prd_review
+  stage: design_review
   decision: approved
   by: leader
-  at: '2026-04-23T18:27:00+08:00'
-  note: 批准 PRD worldcup-daily-predict
+  at: '2026-04-23T18:45:00+08:00'
+  note: 批准设计 worldcup-daily-predict
