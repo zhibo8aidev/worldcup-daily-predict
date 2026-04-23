@@ -1,8 +1,8 @@
 project_id: worldcup-daily-predict
 title: 世界杯每日赛程预测活动
 client_target: both
-current_stage: proposal_specs
-stage_status: blocked
+current_stage: prd_review
+stage_status: waiting_review
 source_inputs:
   idea: 开发一个嵌入直播吧 App 的世界杯每日赛程预测 H5 活动页，支持每日赛程预测、达人榜和赛后结算，纯成就感玩法，无奖品。
   existing_prd:
@@ -20,7 +20,8 @@ available_artifacts:
   backend_code: false
   test_report: false
   release_plan: false
-pending_reviews: []
+pending_reviews:
+- prd_review
 openspec_change_id: null
 react_native_mockups:
   status: stale_after_prd_revision
@@ -83,16 +84,17 @@ execution_policy:
     - design.md
     - tasks.md
 next_actions:
-- Clarify whether prediction is submitted per-question or per-match
-- Reconfirm revised proposal/specs after clarification
-- Restart design stage after revised PRD is approved
+- Human review required for revised proposal/specs
+- If approved, restart design stage to update design.md and HTML mockups
+- If rejected, revise proposal/specs again
 orchestration_mode: strong
 validation:
   required_handoffs: []
   required_runs: []
   artifact_origin_verified: false
-  last_validation_note: PRD revised after design delivery; revised PRD contains a
-    core submission-model conflict that blocks further progression.
+  last_validation_note: Revised PRD was normalized to per-match unified submit based
+    on the detailed interaction sections; revised proposal/specs are ready for PRD
+    review.
 last_decision:
   stage: prd_review
   decision: approved
