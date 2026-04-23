@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>世界杯每日赛程预测 H5 Mockup</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="demo-toolbar glass-card">
+        <div class="toolbar-row">
+          <button class="nav-btn is-active" data-screen="home">活动首页</button>
+          <button class="nav-btn" data-screen="leaderboard">达人榜</button>
+        </div>
+        <div class="toolbar-row toolbar-row--states">
+          <button class="state-chip is-active" data-state="predictable">可预测</button>
+          <button class="state-chip" data-state="predicted">已预测</button>
+          <button class="state-chip" data-state="locked">已锁定</button>
+          <button class="state-chip" data-state="settled">已结算</button>
+          <button class="state-chip" data-state="cancelled">已取消</button>
+          <button class="state-chip" data-state="empty">无赛事</button>
+        </div>
+      </div>
+
+      <main class="phone-frame">
+        <section class="screen screen-home is-active" data-screen="home">
+          <header class="hero-section">
+            <div class="hero-copy">
+              <span class="eyebrow">WORLD CUP DAILY PICK</span>
+              <h1>今日赛程预测</h1>
+              <p>命中越多，排名越高。单题即投，开赛即锁。</p>
+            </div>
+            <div class="hero-badge">第 12 比赛日</div>
+          </header>
+
+          <div class="summary-card glass-card overlap-card">
+            <div>
+              <p class="summary-label">我的战绩</p>
+              <p class="summary-value">18<span>题命中</span></p>
+            </div>
+            <div class="summary-metrics">
+              <div>
+                <strong>73%</strong>
+                <span>命中率</span>
+              </div>
+              <div>
+                <strong>88%</strong>
+                <span>击败用户</span>
+              </div>
+              <div>
+                <strong>+3</strong>
+                <span>昨日涨幅</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="leaderboard-entry glass-card overlap-card-sm">
+            <div>
+              <p class="section-kicker">达人榜</p>
+              <h2>冲击今日 Top 20</h2>
+            </div>
+            <div class="podium-mini">
+              <span>2</span>
+              <span class="champion">1</span>
+              <span>3</span>
+            </div>
+          </div>
+
+          <section class="date-strip">
+            <button class="date-pill">04.21</button>
+            <button class="date-pill">04.22</button>
+            <button class="date-pill is-active">今天<br />04.23</button>
+            <button class="date-pill">04.24</button>
+            <button class="date-pill is-disabled">04.25</button>
+          </section>
+
+          <section class="status-strip">
+            <span class="status-title">状态样例</span>
+            <div class="status-legend">
+              <span>单击上方切换</span>
+            </div>
+          </section>
+
+          <section class="match-list" id="match-list"></section>
+
+          <section class="rules-card glass-card">
+            <p class="section-kicker">活动规则</p>
+            <ul>
+              <li>每个预测项独立提交，提交后不可修改。</li>
+              <li>比赛开赛后自动锁定，按 90 分钟赛果结算。</li>
+              <li>比赛取消或球员未出场时，该题不计入成绩。</li>
+            </ul>
+          </section>
+
+          <div class="page-tail">
+            <p>明日将新增 4 场焦点战，记得回来继续冲榜。</p>
+          </div>
+        </section>
+
+        <section class="screen screen-leaderboard" data-screen="leaderboard">
+          <header class="leaderboard-hero">
+            <span class="eyebrow">RANKING BOARD</span>
+            <h1>世界杯达人榜</h1>
+            <p>今日榜看爆发，总榜看稳定。</p>
+          </header>
+
+          <div class="leader-tabs glass-card">
+            <button class="leader-tab is-active" data-rank-tab="daily">每日榜</button>
+            <button class="leader-tab" data-rank-tab="total">总榜</button>
+          </div>
+
+          <section class="top3 glass-card">
+            <div class="podium-card rank-2">
+              <span class="place">2</span>
+              <strong>球王预言家</strong>
+              <small>16 题命中</small>
+            </div>
+            <div class="podium-card rank-1">
+              <span class="place">1</span>
+              <strong>凌晨四点看球</strong>
+              <small>18 题命中</small>
+            </div>
+            <div class="podium-card rank-3">
+              <span class="place">3</span>
+              <strong>补时绝杀</strong>
+              <small>15 题命中</small>
+            </div>
+          </section>
+
+          <section class="rank-list glass-card" id="rank-list"></section>
+
+          <footer class="my-rank-bar">
+            <div>
+              <span>我的排名</span>
+              <strong>#12</strong>
+            </div>
+            <div>
+              <span>今日命中</span>
+              <strong>11 题</strong>
+            </div>
+            <div>
+              <span>距上一名</span>
+              <strong>1 题</strong>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

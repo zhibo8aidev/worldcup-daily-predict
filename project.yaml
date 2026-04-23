@@ -1,0 +1,99 @@
+project_id: worldcup-daily-predict
+title: 世界杯每日赛程预测活动
+client_target: both
+current_stage: design
+stage_status: in_progress
+source_inputs:
+  idea: 开发一个嵌入直播吧 App 的世界杯每日赛程预测 H5 活动页，支持每日赛程预测、达人榜和赛后结算，纯成就感玩法，无奖品。
+  existing_prd:
+  - /home/chenhuiming/.openclaw/projects/worldcup-daily-predict/artifacts/source-prd/prd.md
+  existing_design:
+  - /home/chenhuiming/.openclaw/projects/worldcup-daily-predict/artifacts/source-design/design-spec.md
+  existing_repo: []
+available_artifacts:
+  proposal_md: true
+  specs_dir: true
+  design_md: false
+  react_native_mockups: false
+  tasks_md: false
+  client_code: false
+  backend_code: false
+  test_report: false
+  release_plan: false
+pending_reviews: []
+openspec_change_id: null
+react_native_mockups:
+  status: null
+  entry: null
+  files: []
+repo_targets:
+  client: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
+  backend: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
+client_stack:
+  frontend: h5
+  design_target: mobile-web
+github:
+  owner: zhibo8aidev
+  repo: worldcup-daily-predict
+  branch: main
+  private: false
+  auto_create_repo: true
+  auto_push: true
+  push_on_step: true
+  review_mode: github_links
+  repo_url: https://github.com/zhibo8aidev/worldcup-daily-predict
+  clone_url: https://github.com/zhibo8aidev/worldcup-daily-predict.git
+owners:
+  leader: leader
+  product: product
+  designer: designer
+  client: frontend
+  backend: backend
+  tester: tester
+  devops: devops
+execution_policy:
+  design:
+    runtime: acp
+    agent: codex
+    method: acp_codex
+    cwd: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
+    deliverables:
+    - design.md
+    - mobile_mockups
+    mockup_format: html
+  frontend:
+    runtime: acp
+    agent: codex
+    method: acp_codex
+    cwd: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
+    stack: h5
+    follows:
+    - proposal.md
+    - specs/
+    - design.md
+    - tasks.md
+  backend:
+    runtime: acp
+    agent: codex
+    method: acp_codex
+    cwd: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
+    follows:
+    - proposal.md
+    - specs/
+    - design.md
+    - tasks.md
+next_actions:
+- Designer to produce design.md and HTML high-fidelity mockups
+- After design artifacts are ready, enter design_review
+orchestration_mode: strong
+validation:
+  required_handoffs: []
+  required_runs: []
+  artifact_origin_verified: false
+  last_validation_note: PRD approved by user; project advanced to design stage.
+last_decision:
+  stage: prd_review
+  decision: approved
+  by: leader
+  at: '2026-04-23T17:24:00+08:00'
+  note: 批准 PRD worldcup-daily-predict

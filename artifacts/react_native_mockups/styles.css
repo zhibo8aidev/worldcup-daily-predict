@@ -1,0 +1,558 @@
+:root {
+  --bg-top: #173f31;
+  --bg-bottom: #081c16;
+  --panel: rgba(255, 255, 255, 0.14);
+  --panel-strong: rgba(255, 255, 255, 0.2);
+  --line: rgba(255, 255, 255, 0.18);
+  --text: #f6fffb;
+  --muted: rgba(246, 255, 251, 0.72);
+  --gold-1: #fff0ae;
+  --gold-2: #f2bf4f;
+  --green: #7df2ae;
+  --blue: #85d8ff;
+  --orange: #ffb35c;
+  --red: #ff6d5f;
+  --gray: #9fb3b6;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "DIN Alternate", "PingFang SC", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(248, 217, 120, 0.18), transparent 28%),
+    radial-gradient(circle at 10% 20%, rgba(125, 242, 174, 0.22), transparent 30%),
+    linear-gradient(180deg, #21513f 0%, var(--bg-top) 20%, var(--bg-bottom) 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto 0 0;
+  height: 26vh;
+  background: radial-gradient(circle at center, rgba(248, 217, 120, 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(100vw, 430px);
+  margin: 0 auto;
+  padding: 14px 12px calc(36px + env(safe-area-inset-bottom));
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.demo-toolbar {
+  position: sticky;
+  top: 10px;
+  z-index: 10;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.toolbar-row {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-row + .toolbar-row {
+  margin-top: 10px;
+}
+
+.toolbar-row--states {
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.nav-btn,
+.state-chip,
+.leader-tab,
+.date-pill {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.nav-btn.is-active,
+.state-chip.is-active,
+.leader-tab.is-active,
+.date-pill.is-active {
+  color: #102117;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 10px 18px rgba(242, 191, 79, 0.28);
+}
+
+.date-pill.is-disabled {
+  opacity: 0.36;
+}
+
+.phone-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.is-active {
+  display: block;
+}
+
+.hero-section,
+.leaderboard-hero {
+  min-height: 290px;
+  padding: 26px 22px 90px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 80% 25%, rgba(255, 240, 174, 0.28), transparent 22%),
+    radial-gradient(circle at 18% 18%, rgba(125, 242, 174, 0.16), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  color: var(--gold-1);
+}
+
+.hero-section h1,
+.leaderboard-hero h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.hero-section p,
+.leaderboard-hero p,
+.section-kicker,
+.summary-label,
+.status-title,
+.status-legend,
+.rank-row span,
+.my-rank-bar span {
+  color: var(--muted);
+}
+
+.hero-badge {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.overlap-card {
+  margin: -48px 14px 12px;
+  padding: 18px;
+}
+
+.overlap-card-sm {
+  margin: 0 14px 14px;
+  padding: 18px;
+}
+
+.summary-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.summary-value {
+  margin: 6px 0 0;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.summary-value span {
+  margin-left: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.summary-metrics {
+  display: flex;
+  gap: 14px;
+}
+
+.summary-metrics div,
+.my-rank-bar div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.leaderboard-entry,
+.rules-card,
+.top3,
+.rank-list,
+.leader-tabs {
+  margin: 0 14px 14px;
+}
+
+.leaderboard-entry,
+.leader-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.podium-mini,
+.top3 {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.podium-mini span,
+.podium-card .place {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.podium-mini .champion,
+.podium-card.rank-1 .place {
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  color: #152217;
+}
+
+.date-strip,
+.status-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 14px 14px;
+  overflow-x: auto;
+}
+
+.status-strip {
+  justify-content: space-between;
+}
+
+.match-list {
+  padding: 0 14px;
+}
+
+.match-card {
+  margin-bottom: 14px;
+  padding: 18px;
+}
+
+.match-head,
+.team-row,
+.question-row,
+.distribution-row,
+.settle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.match-head {
+  margin-bottom: 16px;
+}
+
+.match-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.pill.status-live {
+  color: #112217;
+  background: linear-gradient(135deg, var(--green), #d0ffd0);
+}
+
+.pill.status-lock,
+.note-lock {
+  color: #2d1d00;
+  background: linear-gradient(135deg, #ffeaa4, #ffbc5f);
+}
+
+.pill.status-cancel,
+.note-cancel {
+  background: rgba(159, 179, 182, 0.18);
+  color: #d7e4e5;
+}
+
+.teams {
+  padding: 14px 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 700;
+}
+
+.score {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.questions {
+  display: grid;
+  gap: 10px;
+  padding-top: 16px;
+}
+
+.question-block {
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.question-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.option-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.option {
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.option.is-selected {
+  color: #102117;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 8px 18px rgba(242, 191, 79, 0.22);
+}
+
+.option.is-disabled {
+  opacity: 0.5;
+}
+
+.distribution {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.bar {
+  position: relative;
+  overflow: hidden;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bar > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+}
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cta-btn {
+  padding: 12px 16px;
+  border-radius: 16px;
+  color: #142318;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 14px 24px rgba(242, 191, 79, 0.2);
+}
+
+.assist-text,
+.question-meta,
+.page-tail,
+.empty-state p,
+.rules-card li {
+  color: var(--muted);
+}
+
+.settle-box,
+.empty-state {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 109, 95, 0.14), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.empty-state {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at center, rgba(248, 217, 120, 0.16), transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+}
+
+.cancelled {
+  position: relative;
+  filter: saturate(0.72);
+}
+
+.cancelled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 8px, transparent 8px, transparent 16px);
+  pointer-events: none;
+}
+
+.rules-card {
+  padding: 18px 18px 10px;
+}
+
+.rules-card ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.page-tail {
+  padding: 12px 20px 22px;
+  text-align: center;
+}
+
+.leader-tabs {
+  padding: 8px;
+}
+
+.top3 {
+  padding: 18px 12px 14px;
+  justify-content: center;
+}
+
+.podium-card {
+  flex: 1;
+  padding: 14px 10px;
+  text-align: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.podium-card.rank-1 {
+  transform: translateY(-8px);
+  background: linear-gradient(180deg, rgba(248, 217, 120, 0.28), rgba(255, 255, 255, 0.08));
+}
+
+.rank-list {
+  padding: 10px 14px 80px;
+}
+
+.rank-row {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rank-index {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.rank-row strong {
+  display: block;
+}
+
+.my-rank-bar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 14px;
+  padding: 16px 18px calc(16px + env(safe-area-inset-bottom));
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(180deg, rgba(14, 44, 35, 0.98), rgba(10, 28, 22, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -14px 30px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 380px) {
+  .summary-card,
+  .summary-metrics,
+  .card-foot,
+  .my-rank-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summary-metrics div,
+  .my-rank-bar div {
+    align-items: flex-start;
+  }
+}
