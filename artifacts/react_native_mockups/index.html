@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>世界杯每日赛程预测 H5 设计稿 v2</title>
+    <title>世界杯每日赛程预测 H5 高保真设计稿 v3</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -20,7 +20,7 @@
         <div class="toolbar-row toolbar-row--scroll" id="home-state-controls">
           <button class="state-btn is-active" data-home-state="predictable">可预测</button>
           <button class="state-btn" data-home-state="incomplete">信息未填全</button>
-          <button class="state-btn" data-home-state="predicted">已预测</button>
+          <button class="state-btn" data-home-state="submitted">已提交</button>
           <button class="state-btn" data-home-state="locked">已锁定</button>
           <button class="state-btn" data-home-state="settled">已结算</button>
           <button class="state-btn" data-home-state="cancelled">已取消</button>
@@ -33,16 +33,20 @@
 
         <section class="screen is-active" data-screen="home">
           <header class="hero">
+            <div class="hero-brand">Zhibo8 World Cup</div>
             <div class="hero-art">
-              <div class="trophy-ring"></div>
-              <div class="hero-ball hero-ball--lg"></div>
-              <div class="hero-ball hero-ball--sm"></div>
+              <div class="hero-halo"></div>
+              <div class="hero-ribbon hero-ribbon--left"></div>
+              <div class="hero-ribbon hero-ribbon--right"></div>
+              <div class="hero-ball hero-ball--main"></div>
+              <div class="hero-ball hero-ball--side"></div>
               <div class="hero-cup"></div>
+              <div class="hero-pedestal"></div>
             </div>
             <div class="hero-copy">
-              <span class="eyebrow">WORLD CUP DAILY PICK</span>
+              <span class="eyebrow">WORLD CUP DAILY PREDICT</span>
               <h1>今日赛程预测</h1>
-              <p>答满三题再提交，命中越多排名越高。</p>
+              <p>单场三题答满再提交，命中越多越靠前。</p>
             </div>
 
             <div class="floating-actions">
@@ -61,8 +65,8 @@
             <div class="summary-user">
               <div class="avatar avatar--user">CH</div>
               <div>
-                <p class="summary-title">我的战绩</p>
-                <p class="summary-subtitle">今日已参与 6 场，继续冲榜</p>
+                <p class="summary-title">晨间看台</p>
+                <p class="summary-subtitle">今日已提交 2 场，继续冲击总榜前十</p>
               </div>
             </div>
             <div class="summary-metrics">
@@ -82,7 +86,7 @@
 
           <section class="section-head">
             <div>
-              <span class="section-kicker">MATCHES</span>
+              <span class="section-kicker">TODAY MATCHES</span>
               <h2>当日赛程</h2>
             </div>
             <p id="state-caption">状态样例：可预测</p>
@@ -93,26 +97,26 @@
           <section class="rules-panel glass-card">
             <div class="rules-copy">
               <span class="section-kicker">RULES</span>
-              <h3>预测规则</h3>
+              <h3>评审重点口径</h3>
             </div>
             <ul>
-              <li>单场三道题全部完成后，点击 `提交预测` 统一提交。</li>
-              <li>点击对阵头像或比赛时间区域，可跳转比赛综合内页。</li>
-              <li>开赛后不可再预测，已提交比赛等待结算。</li>
+              <li>单场三题答完后，统一点击“提交预测”提交。</li>
+              <li>按钮文案始终为“提交预测”，仅通过高亮与置灰区分状态。</li>
+              <li>点击对阵头像或比赛时间区域，跳转比赛综合内页。</li>
             </ul>
           </section>
 
           <footer class="page-tail">
             <div class="tail-glow"></div>
-            <p>无赛事或低赛程日，页面仍用场馆光带与规则信息延长底部，避免空白断层。</p>
+            <p>底部用规则卡、氛围文字和环境渐变承接低赛程日，避免出现大面积空白。</p>
           </footer>
         </section>
 
         <section class="screen" data-screen="leaderboard">
           <header class="leaderboard-hero">
-            <span class="eyebrow">PREDICTION RANKING</span>
+            <span class="eyebrow">RANKING CENTER</span>
             <h1>预测达人榜</h1>
-            <p>今日榜看爆发，总榜看稳定，随赛程实时刷新。</p>
+            <p>每日榜看爆发，总榜看稳定，赛后结算实时刷新。</p>
             <button class="back-link" data-screen-target="home">返回首页</button>
           </header>
 
@@ -121,27 +125,9 @@
             <button class="rank-tab" data-rank-tab="total">总榜</button>
           </section>
 
-          <section class="podium glass-card">
-            <article class="podium-card podium-card--silver">
-              <span class="podium-rank">2</span>
-              <div class="avatar">李</div>
-              <strong>凌晨四点看球</strong>
-              <small>16 题命中</small>
-            </article>
-            <article class="podium-card podium-card--gold">
-              <span class="podium-rank">1</span>
-              <div class="avatar">王</div>
-              <strong>补时绝杀王</strong>
-              <small>18 题命中</small>
-            </article>
-            <article class="podium-card podium-card--bronze">
-              <span class="podium-rank">3</span>
-              <div class="avatar">周</div>
-              <strong>门柱也是门</strong>
-              <small>15 题命中</small>
-            </article>
-          </section>
+          <section class="leaderboard-date-strip" id="leaderboard-date-strip"></section>
 
+          <section class="podium glass-card" id="podium"></section>
           <section class="rank-list glass-card" id="rank-list"></section>
 
           <footer class="my-rank glass-card">
@@ -153,8 +139,8 @@
               </div>
             </div>
             <div class="my-rank-meta">
-              <strong>11 题</strong>
-              <span>距上一名 1 题</span>
+              <strong>39 题</strong>
+              <span>距前一名 1 题</span>
             </div>
           </footer>
         </section>
@@ -162,10 +148,12 @@
         <section class="screen" data-screen="share">
           <section class="share-card">
             <div class="share-card__hero">
-              <span class="eyebrow">SHARE CARD</span>
+              <div class="share-cup"></div>
+              <span class="eyebrow">SHARE RECORD</span>
               <h1>世界杯预测战绩</h1>
-              <p>这一届，轮到你来做预言家。</p>
+              <p>这一届，轮到你把判断写进排行榜。</p>
             </div>
+
             <div class="share-card__user glass-card">
               <div class="avatar avatar--xl">CH</div>
               <div>
@@ -173,6 +161,7 @@
                 <p>已超越 88% 的预测玩家</p>
               </div>
             </div>
+
             <div class="share-card__stats glass-card">
               <div>
                 <strong>18</strong>
@@ -187,16 +176,23 @@
                 <span>总命中率</span>
               </div>
             </div>
+
             <div class="share-card__quote glass-card">
-              <p>今晚继续答满三题，再把名字往排行榜上抬一格。</p>
+              <p>今晚继续答满三题，再把名字往总榜上抬一格。</p>
             </div>
-            <div class="share-card__footer">
+
+            <div class="share-card__footer glass-card">
               <div class="brand-lockup">
                 <div class="brand-mark">ZB</div>
-                <span>直播吧世界杯每日赛程预测</span>
+                <div>
+                  <strong>直播吧世界杯每日赛程预测</strong>
+                  <span>扫码参与，看看你能超越多少球迷</span>
+                </div>
               </div>
-              <button class="share-primary" data-toast="系统分享面板示意">立即分享</button>
+              <div class="share-qr">QR</div>
             </div>
+
+            <button class="share-primary" data-toast="系统分享面板示意">立即分享</button>
           </section>
           <button class="back-link back-link--share" data-screen-target="home">返回首页</button>
         </section>

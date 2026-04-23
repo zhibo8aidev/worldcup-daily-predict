@@ -1,8 +1,8 @@
 project_id: worldcup-daily-predict
 title: 世界杯每日赛程预测活动
 client_target: both
-current_stage: design
-stage_status: in_progress
+current_stage: design_review
+stage_status: waiting_review
 source_inputs:
   idea: 开发一个嵌入直播吧 App 的世界杯每日赛程预测 H5 活动页，支持每日赛程预测、达人榜和赛后结算，纯成就感玩法，无奖品。
   existing_prd:
@@ -13,19 +13,23 @@ source_inputs:
 available_artifacts:
   proposal_md: true
   specs_dir: true
-  design_md: false
-  react_native_mockups: false
+  design_md: true
+  react_native_mockups: true
   tasks_md: false
   client_code: false
   backend_code: false
   test_report: false
   release_plan: false
-pending_reviews: []
+pending_reviews:
+- design_review
 openspec_change_id: null
 react_native_mockups:
-  status: regenerating_after_latest_prd_approval
-  entry: null
-  files: []
+  status: ready_for_review
+  entry: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict/artifacts/react_native_mockups/index.html
+  files:
+  - /home/chenhuiming/.openclaw/projects/worldcup-daily-predict/artifacts/react_native_mockups/index.html
+  - /home/chenhuiming/.openclaw/projects/worldcup-daily-predict/artifacts/react_native_mockups/styles.css
+  - /home/chenhuiming/.openclaw/projects/worldcup-daily-predict/artifacts/react_native_mockups/script.js
 repo_targets:
   client: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
   backend: /home/chenhuiming/.openclaw/projects/worldcup-daily-predict
@@ -83,16 +87,16 @@ execution_policy:
     - design.md
     - tasks.md
 next_actions:
-- Designer to regenerate design.md and HTML high-fidelity mockups from the latest
-  approved PRD
-- After updated design artifacts are ready, enter design_review
+- Human review required for the latest design.md and HTML mockups
+- If approved, enter tech_design_tasks and draft tasks.md
+- If rejected, revise design artifacts again
 orchestration_mode: strong
 validation:
   required_handoffs: []
   required_runs: []
   artifact_origin_verified: false
-  last_validation_note: Latest PRD clarification set approved by user; design stage
-    restarted to regenerate artifacts.
+  last_validation_note: Latest design artifacts generated against the final PRD and
+    design spec are ready for review.
 last_decision:
   stage: prd_review
   decision: approved
